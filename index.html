@@ -3,37 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luna - The Mystical Wanderer</title>
-    <meta http-equiv="refresh" content="0; url=index-galaxy.html">
-    <style>
-        body {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-            color: white;
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .loading {
-            text-align: center;
-        }
-        .loading h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
-        }
-        .loading p {
-            font-size: 1.2em;
-            opacity: 0.8;
-        }
-    </style>
+    <title>Luna - The Mystical Wanderer (Galaxy Background)</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="loading">
-        <h1>🌙 Luna</h1>
-        <p>Redirecting to the mystical realm...</p>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Luna</div>
+            <div class="loading-subtitle">Summoning the mystical realm...</div>
+        </div>
     </div>
+
+    <!-- Easter Egg Element -->
+    <div class="easter-egg" id="easterEgg">
+        <span>✨</span>
+    </div>
+    
+
+
+    <!-- Easter Egg Message -->
+    <div class="easter-egg-message" id="easterEggMessage">
+        <div class="message-content">
+            <h3>Secret Message!</h3>
+            <p>Luna's favorite constellation is Orion. She can see it from anywhere in the world! 🌟</p>
+            <button class="close-message" onclick="closeEasterEgg()">×</button>
+        </div>
+    </div>
+
+    <!-- Bubble Animation -->
+    <div class="bubbles">
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTAiIGN5PSIxMCIgcj0iOCIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjEpIiBzdHJva2U9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+Cjwvc3ZnPgo=" alt="bubble">
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAxNSAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNy41IiBjeT0iNy41IiByPSI2IiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMSkiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KPC9zdmc+Cg==" alt="bubble">
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUiIGhlaWdodD0iMjUiIHZpZXdCb3g9IjAgMCAyNSAyNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIuNSIgY3k9IjEyLjUiIHI9IjEwIiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMSkiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjMpIiBzdHJva2Utd2lkdGg9IjEiLz4KPC9zdmc+Cg==" alt="bubble">
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iOSIgY3k9IjkiIHI9IjciIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4xKSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPgo8L3N2Zz4K" alt="bubble">
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAyMiAyMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iOSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjEpIiBzdHJva2U9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4zKSIgc3Ryb2tlLXdpZHRoPSIxIi8+Cjwvc3ZnPgo=" alt="bubble">
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNiIgY3k9IjYiIHI9IjQiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4xKSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPgo8L3N2Zz4K" alt="bubble">
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgiIGhlaWdodD0iMjgiIHZpZXdCb3g9IjAgMCAyOCAyOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTQiIGN5PSIxNCIgcj0iMTEiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4xKSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMykiIHN0cm9rZS13aWR0aD0iMSIvPgo8L3N2Zz4K" alt="bubble">
+    </div>
+
+    <!-- Main Container with Scroll Snap -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+
+            
+            <div class="hero-content">
+                <h1 class="character-name" id="characterName">Luna</h1>
+                <p class="character-intro" id="characterIntro">The Mystical Wanderer</p>
+
+            </div>
+        </section>
+
+        <!-- Character Bio Section -->
+        <section class="bio-section" id="bio">
+            <div class="section-content">
+                <h2 class="section-title">About Luna</h2>
+                <div class="bio-cards">
+                    <div class="bio-card" data-aos="fade-up">
+                        <div class="card-icon">🌙</div>
+                        <h3>Origin</h3>
+                        <p>Born under a rare lunar eclipse, Luna inherited the ability to navigate by starlight and communicate with celestial beings.</p>
+                    </div>
+                    <div class="bio-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-icon">🗺️</div>
+                        <h3>Journey</h3>
+                        <p>She travels across dimensions, collecting stories and wisdom from ancient civilizations and mystical realms.</p>
+                    </div>
+                    <div class="bio-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card-icon">🔮</div>
+                        <h3>Powers</h3>
+                        <p>Luna can read the future in the stars, heal with moonlight, and create portals between worlds.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Generator Section -->
+        <section class="quote-section" id="quote">
+            <div class="section-content">
+                <h2 class="section-title">Luna's Wisdom</h2>
+                <div class="quote-container">
+                    <div class="quote-display" id="quoteDisplay">
+                        <p class="quote-text">Click the button below to hear Luna's wisdom...</p>
+                    </div>
+                    <button class="quote-btn" id="quoteBtn">
+                        <span>Get Wisdom</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section" id="gallery">
+            <div class="section-content">
+                <h2 class="section-title">Luna's Adventures</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-aos="zoom-in">
+                        <div class="gallery-image">
+                            <img src="https://picsum.photos/400/300?random=1" alt="Luna in the Crystal Caves">
+                            <div class="gallery-overlay">
+                                <h3>Crystal Caves</h3>
+                                <p>Where Luna discovered ancient prophecies</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="gallery-image">
+                            <img src="https://picsum.photos/400/300?random=2" alt="Luna at the Star Temple">
+                            <div class="gallery-overlay">
+                                <h3>Star Temple</h3>
+                                <p>Home of the celestial guardians</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="gallery-image">
+                            <img src="https://picsum.photos/400/300?random=3" alt="Luna in the Misty Forest">
+                            <div class="gallery-overlay">
+                                <h3>Misty Forest</h3>
+                                <p>Where time flows differently</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="gallery-image">
+                            <img src="https://picsum.photos/400/300?random=4" alt="Luna at the Moon Lake">
+                            <div class="gallery-overlay">
+                                <h3>Moon Lake</h3>
+                                <p>Reflects the past and future</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="gallery-image">
+                            <img src="https://picsum.photos/400/300?random=5" alt="Luna in the Aurora Valley">
+                            <div class="gallery-overlay">
+                                <h3>Aurora Valley</h3>
+                                <p>Where dreams become reality</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="gallery-image">
+                            <img src="https://picsum.photos/400/300?random=6" alt="Luna at the Cosmic Bridge">
+                            <div class="gallery-overlay">
+                                <h3>Cosmic Bridge</h3>
+                                <p>Gateway between dimensions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="section-content">
+                <h2 class="section-title">Join Luna's Journey</h2>
+                <div class="contact-content">
+                    <div class="contact-text">
+                        <p>Ready to explore the mystical realms with Luna?</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">🌙 Follow Luna</a>
+                            <a href="#" class="social-link">✨ Join the Adventure</a>
+                            <a href="#" class="social-link">🌟 Share Your Story</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="galaxy-webgl.js"></script>
+    <script src="script.js"></script>
 </body>
 </html> 
