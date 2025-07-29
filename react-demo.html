@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy Component Demo - React</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: white;
+            overflow: hidden;
+        }
+        .container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 20px;
+            text-align: center;
+            pointer-events: none;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        }
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            z-index: 20;
+            pointer-events: auto;
+        }
+        .controls label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .controls input {
+            width: 100px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div class="container">
+            <div class="content">
+                <h1>Galaxy Component</h1>
+                <p>Move your mouse to see the stars react!</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <h3>Galaxy Controls</h3>
+        <label>Mouse Repulsion: <input type="checkbox" id="mouseRepulsion" checked></label>
+        <label>Mouse Interaction: <input type="checkbox" id="mouseInteraction" checked></label>
+        <label>Density: <input type="range" id="density" min="0.5" max="3" step="0.1" value="1.5"></label>
+        <label>Glow Intensity: <input type="range" id="glowIntensity" min="0" max="1" step="0.1" value="0.5"></label>
+        <label>Saturation: <input type="range" id="saturation" min="0" max="1" step="0.1" value="0.8"></label>
+        <label>Hue Shift: <input type="range" id="hueShift" min="0" max="360" step="10" value="240"></label>
+    </div>
+    
+    <!-- Bundled React app -->
+    <script src="dist/bundle.js"></script>
+</body>
+</html> 
